@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<link rel="stylesheet" href="{% static  'css/sections_style.css' %}">
+<body>
+<div class="table-title" id="genres">Музыкальные жанры</div>
+<div class="table-title" id="artists">Исполнители</div>
+<div class="table-title" id="albums">Альбомы</div>
+<div class="table-title" id="compositions">Композиции</div>
+    {% block content %}
+
+    {% endblock %}
+</body>
+<script src="{% static 'script/surf_pages.js' %}"></script>
+</html>
