@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title></title>
+</head>
+<style>
+body{
+    background-color: #66665e;
+}
+a {
+    color:#000000;
+    text-decoration: none;
+}
+    .add-element-button{
+    padding: 10px;
+    margin-left: 30px;
+    background-color: var(--title-bg-color);
+    font-weight: bold;
+}
+</style>
+<body>
+{% block content %}
+<form method="POST" action=""> {% csrf_token %}
+    {{ form.as_p }}
+    <input id="post-button" class="add-element-button" type="submit" value="Опубликовать">
+</form>
+{% endblock %}
+
+</body>
+</html>

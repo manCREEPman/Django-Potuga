@@ -45,5 +45,4 @@ for(let i = 0; i < 4; i++){
 
 const list = document.getElementsByTagName('input')
 const addButton = list[list.length - 1]
-console.log(addButton.id)
 if(addButton != null) addButton.addEventListener('click', newItemAddingHandler)

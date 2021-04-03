@@ -1,8 +1,12 @@
 from django import forms
 from .models import *
+from django.db import models
 
 
 class GenreForm(forms.ModelForm):
+    genre_name = models.CharField()
+    genre_description = models.CharField()
+
     class Meta:
         model = MusicGenre
         fields = ['genre_name', 'genre_description']

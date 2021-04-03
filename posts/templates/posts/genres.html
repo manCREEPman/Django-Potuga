@@ -3,14 +3,12 @@
 {% block content %}
 <table border="1" width="100%">
     <tr>
-        <th>ID</th>
         <th>Название жанра</th>
         <th>Описание жанра</th>
     </tr>
     {% for i in queryset%}
         <tr>
-            <td>{{ i.genre_id }}</td>
-            <td>{{ i.genre_name }}</td>
+            <td><a href="/posts/genres/{{ i.genre_id }}/">{{ i.genre_name }}</a></td>
             <td>{{ i.genre_description }}</td>
         </tr>
     {% endfor %}

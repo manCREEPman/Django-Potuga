@@ -24,7 +24,8 @@ urlpatterns = [
 
     url(r'posts/\w+/update', update_element_page),
     url(r'^posts/genres/$', genres_page),
-    # url(r'posts/genres/?item=', 'posts.views.genre'),
+    url(r'posts/\w+/\d+/$', element_view),
+    url(r'posts/\w+/change/\d+$', element_change),
     #
     url(r'posts/artists/$', artists_page),
     # url(r'posts/artists/?item=', 'posts.views.artist'),

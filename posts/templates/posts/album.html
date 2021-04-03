@@ -1,0 +1,37 @@
+<!doctype html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Альбом</title>
+</head>
+<style>
+    body{
+    background-color: #66665e;
+}
+a {
+    color:#000000;
+    text-decoration: none;
+}
+    .add-element-button{
+    padding: 10px;
+    margin-left: 30px;
+    background-color: var(--title-bg-color);
+    font-weight: bold;
+}
+</style>
+<body>
+{% for i in queryset %}
+        <div>ID: {{i.album_id}}</div>
+        <div>Исполнитель: {{i.artist_id}}</div>
+        <div>Название: {{i.album_name}}</div>
+        <div>Описание: {{i.album_desc}}</div>
+        <div></div>
+<br>
+<a class="add-element-button" href="/posts/albums/change/{{i.album_id}}">Изменить</a>
+<a href="/posts/">На главную</a>
+{% endfor %}
+
+</body>
+<script src="{% static 'script/listeners.js' %}"></script>
+</html>

@@ -58,7 +58,7 @@ class Composition(models.Model):
     album_id = models.ForeignKey(Album, on_delete=models.CASCADE, verbose_name='ID альбома')
     composition_title = models.CharField(max_length=50, verbose_name='Название композиции')
     composition_duration = models.TimeField(auto_now=False, auto_now_add=False, verbose_name='Длительность')
-    composition_text = models.CharField(max_length=1000, verbose_name='Название композиции')
+    composition_text = models.CharField(max_length=1000, verbose_name='Текст композиции')
 
     def __unicode__(self):
         return self.composition_title

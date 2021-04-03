@@ -1,5 +1,18 @@
 {% extends 'posts/page_template.html' %}
 
 {% block content %}
-
+<table border="1" width="100%">
+    <tr>
+        <th>Название композиции</th>
+        <th>Длительность</th>
+    </tr>
+    {% for i in queryset %}
+        <tr>
+            <td><a href="/posts/compositions/{{ i.composition_id }}">{{ i.composition_title }}</a></td>
+            <td>{{ i.composition_duration }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<br>
+<input class="add-element-button" type="button" value="Добавить" id="add-composition-button">
 {% endblock %}

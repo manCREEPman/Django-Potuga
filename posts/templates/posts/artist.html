@@ -1,0 +1,35 @@
+<!doctype html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Исполнитель</title>
+</head>
+<style>
+    body{
+    background-color: #66665e;
+}
+a {
+    color:#000000;
+    text-decoration: none;
+}
+    .add-element-button{
+    padding: 10px;
+    margin-left: 30px;
+    background-color: var(--title-bg-color);
+    font-weight: bold;
+}
+</style>
+<body>
+{% for i in queryset %}
+        <div>ID: {{i.artist_id}}</div>
+        <div>Исполнитель: {{i.artist_name}}</div>
+        <div>Начало карьеры: {{i.artist_start_career_date}}</div>
+<br>
+<a class="add-element-button" href="/posts/artists/change/{{i.artist_id}}">Изменить</a>
+<a href="/posts/">На главную</a>
+{% endfor %}
+
+</body>
+<script src="{% static 'script/listeners.js' %}"></script>
+</html>

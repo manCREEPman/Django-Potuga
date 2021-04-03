@@ -3,14 +3,12 @@
 {% block content %}
 <table border="1" width="100%">
     <tr>
-        <th>ID</th>
         <th>Исполнитель</th>
         <th>Название альбома</th>
     </tr>
     {% for i in queryset%}
         <tr>
-            <td>{{ i.album_id }}</td>
-            <td>{{ i.artist_id }}</td>
+            <td><a href="/posts/albums/{{ i.album_id }}">{{ i.artist_id }}</a></td>
             <td>{{ i.album_name }}</td>
         </tr>
     {% endfor %}
