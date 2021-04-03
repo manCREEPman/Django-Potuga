@@ -1,0 +1,8 @@
+{% extends 'posts/page_template.html' %}
+
+{% block content %}
+<form method="POST" action=""> {% csrf_token %}
+    {{ form.as_p }}
+    <input id="post-button" class="add-element-button" type="submit" value="Опубликовать">
+</form>
+{% endblock %}

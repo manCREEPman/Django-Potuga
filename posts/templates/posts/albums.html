@@ -1,5 +1,22 @@
 {% extends 'posts/page_template.html' %}
 
 {% block content %}
-
+<table border="1" width="100%">
+    <tr>
+        <th>ID</th>
+        <th>Исполнитель</th>
+        <th>Название альбома</th>
+        <th>Описание альбома</th>
+        <th>Дата выхода альбома</th>
+    </tr>
+    {% for i in queryset%}
+        <tr>
+            <td>{{ i.genre_id }}</td>
+            <td>{{ i.genre_name }}</td>
+            <td>{{ i.genre_description }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<br>
+<input class="add-element-button" type="button" value="Добавить" id="add-genre-button">
 {% endblock %}

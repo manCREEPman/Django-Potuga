@@ -1,5 +1,20 @@
 {% extends 'posts/page_template.html' %}
 
 {% block content %}
-<h1>Блядь</h1>
+<table border="1" width="100%">
+    <tr>
+        <th>ID</th>
+        <th>Название жанра</th>
+        <th>Описание жанра</th>
+    </tr>
+    {% for i in queryset%}
+        <tr>
+            <td>{{ i.genre_id }}</td>
+            <td>{{ i.genre_name }}</td>
+            <td>{{ i.genre_description }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<br>
+<input class="add-element-button" type="button" value="Добавить" id="add-genre-button">
 {% endblock %}

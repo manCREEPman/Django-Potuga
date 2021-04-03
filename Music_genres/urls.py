@@ -22,8 +22,7 @@ urlpatterns = [
     url(r'^posts/$', posts_home),
 
 
-    # url(r'posts/\w+/update/?item=', 'posts.views.update_element'),
-    #
+    url(r'posts/\w+/update', update_element_page),
     url(r'^posts/genres/$', genres_page),
     # url(r'posts/genres/?item=', 'posts.views.genre'),
     #
