@@ -27,7 +27,7 @@ def artists_page(request):
 
 
 def albums_page(request):
-    albums = Album.objects.all()
+    albums = Album.objects.select_related('artist_id')
     context = {'title': 'Альбомы'}
     if albums is not None:
         context['queryset'] = albums
@@ -35,7 +35,11 @@ def albums_page(request):
 
 
 def compositions_page(request):
-    return render(request, 'posts/compositions.html', {'title': 'Композиции', 'content': 'Композиции'})
+    compositions = Composition.objects.select_related('genre_id', 'album_id')
+    context = {'title': 'Композиции'}
+    if compositions is not None:
+        context['compositions'] = compositions
+    return render(request, 'posts/compositions.html', context)
 
 
 def update_element_page(request):
@@ -57,11 +61,8 @@ def update_element_page(request):
             context['form'] = CompositionForm()
         return render(request, 'posts/update_element_template.html', context)
     if request.method == 'POST':
-        print(request.POST)
-        print(request.path)
         table = re.findall(r'/posts/(\w+)/update', request.path)[0]
         post_data = request.POST
-        print(table[0])
         if table == 'genres':
             genre = MusicGenre(genre_name=post_data['genre_name'], genre_description=post_data['genre_description'])
             genre.save()
@@ -79,5 +80,16 @@ def update_element_page(request):
             if queryset is not None:
                 context['queryset'] = queryset
             return render(request, 'posts/artists.html', context)
+        if table == 'albums':
+            album = Album(artist_id=post_data['artist_id'],
+                          album_name=post_data['album_name'],
+                          album_desc=post_data['album_desc'],
+                          album_release_date=post_data['album_release_date'])
+            album.save()
+            queryset = Album.objects.select_related('artist_id')
+            context = {'title': 'Альбомы'}
+            if queryset is not None:
+                context['queryset'] = queryset
+            return render(request, 'posts/albums.html', context)
 # {'csrfmiddlewaretoken': ['bvB1nx5yu4TBAl1qwd82MZ3esytPSpqGwrR7WjTGPAhUR3mX4M28jx7g9hPVwuem'], 'genre_name': ['Джаз'], 'genre_description': ['Новое описание джаза']}>
 # /posts/genres/update

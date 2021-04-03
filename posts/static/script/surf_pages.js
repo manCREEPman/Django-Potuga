@@ -38,13 +38,6 @@ function newItemAddingHandler(event){
     }
 }
 
-// function postAndRedirectionHandler(event){
-//     let form = document.getElementById('send-form')
-//     form.action = ""
-//     window.location.href = "/posts/"
-// }
-
-
 const titles = ["genres", "artists", "albums", "compositions"]
 for(let i = 0; i < 4; i++){
     document.getElementById(titles[i]).addEventListener("click", titleClickHandler)
@@ -54,6 +47,3 @@ const list = document.getElementsByTagName('input')
 const addButton = list[list.length - 1]
 console.log(addButton.id)
 if(addButton != null) addButton.addEventListener('click', newItemAddingHandler)
-
-// const postButton = document.getElementById("post-button")
-// if(postButton != null) postButton.addEventListener('click', postAndRedirectionHandler)
